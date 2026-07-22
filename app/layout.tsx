@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Xai — Intelligence Workspace",
+  title: "Xai - Intelligence Workspace",
   description:
     "From raw data to structured intelligence to actionable insight to AI automations.",
   icons: {
