@@ -41,27 +41,27 @@ npm start
 
 ```
 app/
-  layout.tsx                Root layout, fonts, metadata
-  page.tsx                  Composes all sections in order
-  globals.css               Design tokens (colors, grain overlay, glass panel utility)
+  layout.tsx                     Root layout, fonts, metadata
+  page.tsx                       Composes all sections in order
+  globals.css                    Design tokens (colors, grain overlay, glass panel utility)
 
 components/
   layout/
-    Navbar.tsx              Fixed nav, fades in on load
+    Navbar.tsx                   Fixed nav, fades in on load
     Footer.tsx
 
   features/
     dashboard/
-      Dashboard.tsx          Mock product UI: sidebar, tabs, table, cards
-      TrendChart.tsx         Interactive trend chart
+      Dashboard.tsx              Mock product UI: sidebar, tabs, table, cards
+      TrendChart.tsx             Interactive trend chart
 
     hero/
-      Hero.tsx              Scroll-pinned hero wrapper, headline choreography
-      HeroScene.tsx         R3F scene: particle cloud → structured grid
-      Graph.tsx             Compute graph edges from nearest-neighbor distances
+      Hero.tsx                   Scroll-pinned hero wrapper, headline choreography
+      HeroScene.tsx              R3F scene: particle cloud → structured grid
+      Graph.tsx                  Compute graph edges from nearest-neighbor distances
 
     insight-flow/
-      InsightFlow.tsx       GSAP ScrollTrigger pinned 3-stage explainer
+      InsightFlow.tsx            GSAP ScrollTrigger pinned 3-stage explainer
 
     signature/
       SignatureInteraction.tsx   Wrapper + trigger button for the "wow moment"
