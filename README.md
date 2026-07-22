@@ -7,7 +7,7 @@ choreography, and a mock product dashboard.
 
 ## Live demo & video
 
-- Live URL:
+- Live URL: https://xai-intelligence-workspace-live.vercel.app/
 - Walkthrough video:
 - Figma:
 
@@ -41,18 +41,32 @@ npm start
 
 ```
 app/
-  layout.tsx        Root layout, fonts, metadata
-  page.tsx           Composes all sections in order
-  globals.css        Design tokens (colors, grain overlay, glass panel utility)
+  layout.tsx                Root layout, fonts, metadata
+  page.tsx                  Composes all sections in order
+  globals.css               Design tokens (colors, grain overlay, glass panel utility)
+
 components/
-  Nav.tsx                    Fixed nav, fades in on load
-  Hero.tsx                   Scroll-pinned hero wrapper, headline choreography
-  HeroScene.tsx              R3F scene: particle cloud → structured grid
-  InsightFlow.tsx            GSAP ScrollTrigger pinned 3-stage explainer
-  Dashboard.tsx              Mock product UI: sidebar, tabs, table, cards
-  SignatureInteraction.tsx   Wrapper + trigger button for the "wow moment"
-  SignatureScene.tsx         R3F scene: data points that cluster on demand
-  Footer.tsx
+  layout/
+    Navbar.tsx              Fixed nav, fades in on load
+    Footer.tsx
+
+  features/
+    dashboard/
+      Dashboard.tsx          Mock product UI: sidebar, tabs, table, cards
+      TrendChart.tsx         Interactive trend chart
+
+    hero/
+      Hero.tsx              Scroll-pinned hero wrapper, headline choreography
+      HeroScene.tsx         R3F scene: particle cloud → structured grid
+      Graph.tsx             Compute graph edges from nearest-neighbor distances
+
+    insight-flow/
+      InsightFlow.tsx       GSAP ScrollTrigger pinned 3-stage explainer
+
+    signature/
+      SignatureInteraction.tsx   Wrapper + trigger button for the "wow moment"
+      SignatureScene.tsx         R3F scene: data points that cluster on demand
+      DataMesh.tsx               Compute graph edges from nearest-neighbor distances
 ```
 
 ## Key animation & interaction decisions
@@ -98,7 +112,7 @@ depth.
 ("ease-out-expo"-ish) for a confident, decisive settle rather than a bouncy or
 linear finish — chosen to match the "calm but powerful" brief.
 
-**Micro-interactions (explicit brief requirement).** Two places specifically
+**Micro-interactions.** Two places specifically
 needed hover/focus/transition treatment beyond scroll-driven animation:
 
 - _Insight Flow_ stage buttons now have a hover state independent of the
