@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: "Xai — Intelligence Workspace",
   description:
     "From raw data to structured intelligence to actionable insight to AI automations.",
+  icons: {
+    icon: [
+      {
+        url: "/xai-favicon-black.ico",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/xai-favicon-white.ico",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const links = ["Product", "Insight Flow", "Dashboard", "Automations"];
 
@@ -15,8 +16,8 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-8 py-5"
     >
       <div className="flex items-center gap-2">
-        <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_2px_rgba(91,140,255,0.6)]" />
-        <span className="font-mono text-sm tracking-widest text-ink-100">
+        <Image src="/xai-logo-white.png" alt="logo" width={20} height={20} />
+        <span className="font-mono text-lg tracking-widest text-ink-100">
           XAI
         </span>
       </div>

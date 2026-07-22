@@ -1,7 +1,5 @@
-"use client";
-
 import { useRef, useMemo } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 const COUNT = 420;
@@ -61,7 +59,7 @@ function useGraphLayout() {
   }, []);
 }
 
-function Graph({ progress }: { progress: React.MutableRefObject<number> }) {
+const Graph = ({ progress }: { progress: React.MutableRefObject<number> }) => {
   const pointsRef = useRef<THREE.Points>(null);
   const linesRef = useRef<THREE.LineSegments>(null);
   const groupRef = useRef<THREE.Group>(null);
@@ -153,23 +151,6 @@ function Graph({ progress }: { progress: React.MutableRefObject<number> }) {
       </points>
     </group>
   );
-}
-
-const HeroScene = ({
-  progress,
-}: {
-  progress: React.MutableRefObject<number>;
-}) => {
-  return (
-    <Canvas
-      camera={{ position: [0, 0, 8], fov: 45 }}
-      gl={{ antialias: true, alpha: true }}
-      dpr={[1, 1.75]}
-    >
-      <ambientLight intensity={0.6} />
-      <Graph progress={progress} />
-    </Canvas>
-  );
 };
 
-export default HeroScene;
+export default Graph;

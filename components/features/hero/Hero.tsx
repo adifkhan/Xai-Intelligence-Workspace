@@ -9,7 +9,9 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 
-const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
+const HeroScene = dynamic(() => import("./HeroScene"), {
+  ssr: false,
+});
 
 const Hero = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -21,7 +23,7 @@ const Hero = () => {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    progress.current = Math.min(1, v * 1.4);
+    progress.current = Math.min(1, v * 2);
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.85, 1], [1, 1, 0]);
@@ -79,7 +81,7 @@ const Hero = () => {
             className="mt-6 max-w-lg text-balance text-base text-ink-400 md:text-lg"
           >
             Xai ingests your messy, unstructured signal and organizes it into
-            decisions you can act on — calmly, and in real time.
+            decisions you can act on calmly, and in real time.
           </motion.p>
 
           <motion.div

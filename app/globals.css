@@ -13,7 +13,9 @@ html {
 body {
   background: #07080a;
   color: #f3f5f7;
-  font-feature-settings: "ss01" on, "ss02" on;
+  font-feature-settings:
+    "ss01" on,
+    "ss02" on;
   overflow-x: hidden;
 }
 
@@ -35,7 +37,9 @@ body {
   background: rgba(18, 21, 26, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(20px);
-  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  box-shadow:
+    0 30px 80px -30px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
 }
 
 .text-gradient {
@@ -62,9 +66,22 @@ body {
 .mesh-bg {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(60% 50% at 20% 20%, rgba(91, 140, 255, 0.16) 0%, rgba(91, 140, 255, 0) 60%),
-    radial-gradient(50% 40% at 85% 15%, rgba(155, 123, 255, 0.14) 0%, rgba(155, 123, 255, 0) 60%),
-    radial-gradient(45% 45% at 75% 85%, rgba(94, 234, 212, 0.08) 0%, rgba(94, 234, 212, 0) 60%);
+  background-image:
+    radial-gradient(
+      60% 50% at 20% 20%,
+      rgba(91, 140, 255, 0.16) 0%,
+      rgba(91, 140, 255, 0) 60%
+    ),
+    radial-gradient(
+      50% 40% at 85% 15%,
+      rgba(155, 123, 255, 0.14) 0%,
+      rgba(155, 123, 255, 0) 60%
+    ),
+    radial-gradient(
+      45% 45% at 75% 85%,
+      rgba(94, 234, 212, 0.08) 0%,
+      rgba(94, 234, 212, 0) 60%
+    );
   pointer-events: none;
 }
 
