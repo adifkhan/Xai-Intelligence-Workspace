@@ -13,13 +13,10 @@ const Navbar = () => {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-8 py-5"
+      className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-10 py-5"
     >
       <div className="flex items-center gap-2">
-        <Image src="/xai-logo-white.png" alt="logo" width={20} height={20} />
-        <span className="font-mono text-lg tracking-widest text-ink-100">
-          XAI
-        </span>
+        <Image src="/xai-white.png" alt="logo" width={50} height={50} />
       </div>
 
       <nav className="hidden md:flex items-center gap-8">

@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/xai-favicon-black.ico",
+        url: "/xai-black.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/xai-favicon-white.ico",
+        url: "/xai-white.png",
         media: "(prefers-color-scheme: dark)",
       },
     ],
