@@ -5,11 +5,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "framer-motion";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+gsap.registerPlugin(ScrollTrigger);
 
-const stages = [
+const STAGES = [
   {
     label: "01",
     title: "Ingest Data",
@@ -39,13 +37,13 @@ const InsightFlow = () => {
       const st = ScrollTrigger.create({
         trigger: containerRef.current,
         start: "top top",
-        end: () => `+=${window.innerHeight * (stages.length - 1)}`,
+        end: () => `+=${window.innerHeight * (STAGES.length - 1)}`,
         pin: true,
         scrub: 0.6,
         onUpdate: (self) => {
           const idx = Math.min(
-            stages.length - 1,
-            Math.floor(self.progress * stages.length),
+            STAGES.length - 1,
+            Math.floor(self.progress * STAGES.length),
           );
           setActive(idx);
         },
@@ -61,7 +59,7 @@ const InsightFlow = () => {
             scrollTrigger: {
               trigger: containerRef.current,
               start: "top top",
-              end: () => `+=${window.innerHeight * (stages.length - 1)}`,
+              end: () => `+=${window.innerHeight * (STAGES.length - 1)}`,
               scrub: 0.6,
             },
           },
@@ -78,16 +76,15 @@ const InsightFlow = () => {
     <section
       id="insight-flow"
       ref={containerRef}
-      className="relative flex h-screen items-center overflow-hidden bg-base-900"
+      className="relative flex h-screen items-center overflow-hidden"
     >
-      <div className="mesh-bg opacity-70" />
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-8 md:grid-cols-2">
         <div className="stage-panel">
           <p className="mb-4 font-mono text-xs tracking-widest text-ink-400">
             HOW IT WORKS
           </p>
           <div className="space-y-1">
-            {stages.map((s, i) => {
+            {STAGES.map((s, i) => {
               const isActive = active === i;
               const isHovered = hovered === i;
               return (
@@ -101,9 +98,9 @@ const InsightFlow = () => {
                     window.scrollTo({
                       top:
                         (containerRef.current?.offsetTop ?? 0) +
-                        (i / stages.length) *
+                        (i / STAGES.length) *
                           window.innerHeight *
-                          stages.length,
+                          STAGES.length,
                       behavior: "smooth",
                     })
                   }
@@ -112,7 +109,7 @@ const InsightFlow = () => {
                   {(isActive || isHovered) && (
                     <motion.span
                       layoutId={`stage-hover-pill-${isActive ? "active" : "hover"}-${i}`}
-                      className="absolute inset-0 rounded-xl bg-white/[0.04]"
+                      className="absolute inset-0 rounded-xl bg-white/[0.1]"
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     />
                   )}
@@ -130,10 +127,10 @@ const InsightFlow = () => {
                   <span
                     className={`relative z-10 flex-1 text-2xl font-medium transition-all duration-300 md:text-3xl ${
                       isActive
-                        ? "translate-x-1 text-ink-100"
+                        ? "translate-x-1 text-accent"
                         : isHovered
-                          ? "translate-x-1 text-ink-100/80"
-                          : "text-ink-400/50"
+                          ? "translate-x-1 text-ink-100"
+                          : "text-ink-400"
                     }`}
                   >
                     {s.title}
@@ -167,7 +164,7 @@ const InsightFlow = () => {
               className="panel absolute inset-0 rounded-2xl p-8"
             >
               <div className="mb-6 flex gap-2">
-                {stages.map((s, i) => (
+                {STAGES.map((s, i) => (
                   <div key={i} className="group/dot relative flex-1">
                     <span
                       className={`block h-1 rounded-full transition-all duration-300 group-hover/dot:h-1.5 ${
@@ -176,16 +173,16 @@ const InsightFlow = () => {
                           : "bg-white/10 group-hover/dot:bg-white/20"
                       }`}
                     />
-                    <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 rounded-md bg-base-700 px-2 py-1 text-[10px] tracking-wide text-ink-300 opacity-0 shadow-lg transition-opacity duration-200 group-hover/dot:opacity-100">
+                    <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 rounded-md bg-base-700 px-2 py-1 text-[10px] tracking-wide text-ink-400 opacity-0 shadow-lg transition-opacity duration-200 group-hover/dot:opacity-100">
                       {s.title}
                     </span>
                   </div>
                 ))}
               </div>
               <h3 className="mb-3 text-2xl font-medium text-ink-100">
-                {stages[active].title}
+                {STAGES[active].title}
               </h3>
-              <p className="text-ink-400">{stages[active].copy}</p>
+              <p className="text-ink-400">{STAGES[active].copy}</p>
 
               <div className="mt-8 flex gap-1.5">
                 {Array.from({ length: 12 }).map((_, i) => (

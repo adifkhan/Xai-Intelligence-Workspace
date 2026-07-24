@@ -1,5 +1,24 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import Scene from "@/components/canvas/Scene";
+import Navbar from "@/components/layout/Navbar";
 import "./globals.css";
+
+const display = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+});
+const body = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+});
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   title: "Xai - Intelligence Workspace",
@@ -26,7 +45,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="grain bg-base-950 antialiased">{children}</body>
+      <body
+        className={`${display.variable} ${body.variable} ${mono.variable} bg-bg text-text font-body antialiased`}
+      >
+        <Scene />
+        <Navbar />
+        <main className="relative z-[1]">{children}</main>
+      </body>
     </html>
   );
 }

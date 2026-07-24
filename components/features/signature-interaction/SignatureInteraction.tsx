@@ -14,7 +14,7 @@ const SignatureInteraction = () => {
   return (
     <section
       id="automations"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-base-900 px-6 py-32"
+      className="relative bg-bg flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-32"
     >
       <div className="mesh-bg" />
       <div

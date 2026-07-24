@@ -45,20 +45,30 @@ app/
   page.tsx                       Composes all sections in order
   globals.css                    Design tokens (colors, grain overlay, glass panel utility)
 
+lib/
+  scrollStore.ts                 Shared scroll state
+
 components/
   layout/
     Navbar.tsx                   Fixed nav, fades in on load
     Footer.tsx
 
+  canvas/
+    ParticleField.tsx            3D particle field, scroll-driven choreography
+    Scene.tsx                    R3F scene: particle field
+
   features/
     dashboard/
       Dashboard.tsx              Mock product UI: sidebar, tabs, table, cards
+      NavCart.tsx                Dashboard navigation card
+      OverviewTab.tsx            Interactive overview tab
+      SignalsTab.tsx             Interactive signals tab
+      AnimationTab.tsx           Interactive automations tab
+      SingnalTable.tsx           Interactive signal table
       TrendChart.tsx             Interactive trend chart
 
     hero/
-      Hero.tsx                   Scroll-pinned hero wrapper, headline choreography
-      HeroScene.tsx              R3F scene: particle cloud → structured grid
-      Graph.tsx                  Compute graph edges from nearest-neighbor distances
+      Hero.tsx                   hero wrapper, headline choreography
 
     insight-flow/
       InsightFlow.tsx            GSAP ScrollTrigger pinned 3-stage explainer

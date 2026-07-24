@@ -7,30 +7,30 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        base: {
-          950: "#07080A",
-          900: "#0B0D10",
-          800: "#12151A",
-          700: "#1B1F26",
-          600: "#262B34",
+        bg: {
+          DEFAULT: "#0B0C0F",
+          elev: "#15171C",
+          "elev-2": "#1B1E24",
+        },
+        text: {
+          DEFAULT: "#E9EAEE",
+          dim: "#8C8F99",
+          faint: "#5A5D68",
         },
         ink: {
           400: "#8A93A3",
-          300: "#AEB6C2",
           100: "#F3F5F7",
         },
-        accent: {
-          DEFAULT: "#5B8CFF",
-          dim: "#2E4A8F",
-          glow: "#7FA3FF",
-        },
+        accent: "#5B8CFF",
+        signal: "#5B84FF",
+        insight: "#FFB454",
+        border: "rgba(255,255,255,0.08)",
+        "border-strong": "rgba(255,255,255,0.14)",
       },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui"],
-        mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular"],
-      },
-      transitionTimingFunction: {
-        signature: "cubic-bezier(0.16, 1, 0.3, 1)",
+        display: ["var(--font-display)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
     },
   },

@@ -1,113 +1,67 @@
 "use client";
 
-import { useRef } from "react";
-import dynamic from "next/dynamic";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion } from "framer-motion";
 
-const HeroScene = dynamic(() => import("./HeroScene"), {
-  ssr: false,
-});
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 18 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 const Hero = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const progress = useRef(0);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    progress.current = Math.min(1, v * 2);
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.85, 1], [1, 1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-
   return (
-    <section id="product" ref={sectionRef} className="relative h-[160vh]">
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <div className="mesh-bg" />
-        <div
-          className="glow-orb h-[420px] w-[420px] bg-accent/30"
-          style={{ top: "-8%", left: "-6%" }}
-        />
-        <div
-          className="glow-orb h-[380px] w-[380px] bg-violet/25"
-          style={{ top: "10%", right: "-8%" }}
-        />
-        <div
-          className="glow-orb h-[300px] w-[300px] bg-signal/10"
-          style={{ bottom: "-10%", left: "30%" }}
-        />
-
-        <div className="absolute inset-0">
-          <HeroScene progress={progress} />
-        </div>
-
-        <motion.div
-          style={{ opacity, y: textY }}
-          className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
-        >
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-5 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-mono text-xs tracking-widest text-ink-300"
+    <section id="product" className="relative">
+      <div className="min-h-screen  flex flex-col justify-center px-[5vw] max-w-[900px]">
+        <motion.div variants={container} initial="hidden" animate="show">
+          <motion.div
+            variants={item}
+            className="font-mono text-xs tracking-[0.14em] text-signal mb-6 uppercase flex items-center gap-2.5"
           >
-            INTELLIGENCE WORKSPACE
-          </motion.span>
+            Intelligence Workspace
+          </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-gradient-accent text-glow max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl"
+            variants={item}
+            className="font-display font-semibold tracking-tight leading-[1.02] text-[clamp(40px,7vw,84px)] max-w-[14ch]"
           >
-            Raw data, quietly
-            <br />
-            becoming intelligence.
+            Every signal, <span className="text-text-dim">structured.</span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.7 }}
-            className="mt-6 max-w-lg text-balance text-base text-ink-400 md:text-lg"
+            variants={item}
+            className="mt-6 text-lg leading-relaxed text-text-dim max-w-[46ch]"
           >
-            Xai ingests your messy, unstructured signal and organizes it into
-            decisions you can act on calmly, and in real time.
+            Xai turns raw, disconnected data into a live map of what matters -
+            then acts on it. Built for teams who make decisions on evidence, not
+            dashboards full of noise.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-10 flex items-center gap-4"
-          >
-            <button className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-base-950 transition-transform duration-300 hover:scale-[1.03]">
+          <motion.div variants={item} className="flex gap-3.5 mt-10">
+            <button className="px-6 py-3.5 rounded-lg font-medium text-[14.5px] bg-text text-bg hover:bg-white hover:-translate-y-px transition-all">
               See it in motion
             </button>
-            <button className="rounded-full border border-white/10 px-6 py-3 text-sm text-ink-100 transition-colors duration-300 hover:bg-white/5">
+            <button className="px-6 py-3.5 rounded-lg font-medium text-[14.5px] border border-border-strong hover:border-text-dim transition-all">
               Read the docs
             </button>
           </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="absolute bottom-10 font-mono text-xs tracking-widest text-ink-400"
-          >
-            SCROLL TO STRUCTURE ↓
-          </motion.p>
         </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 font-mono text-[11px] text-text-faint tracking-wider flex items-center gap-2"
+      >
+        SCROLL TO STRUCTURE ↓
+      </motion.div>
     </section>
   );
 };
