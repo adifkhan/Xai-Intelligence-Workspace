@@ -8,8 +8,7 @@ choreography, and a mock product dashboard.
 ## Live demo & video
 
 - Live URL: https://xai-intelligence-workspace-live.vercel.app/
-- Walkthrough video:
-- Figma:
+- Figma: https://uxpilot.ai/s/adae2f13c0e8a807b7a87ef3946253f2
 
 ## Tech stack
 
