@@ -80,7 +80,7 @@ components/
 
 ## Key animation & interaction decisions
 
-**Hero — a knowledge graph forming, not a grid.** `HeroScene.tsx` computes two
+**Hero — a knowledge graph forming, not a grid.** `Scene.tsx` computes two
 literal states per node: a noisy volumetric cloud (raw, disconnected data) and
 a small-world node layout (topic clusters with local scatter). It then
 precomputes real graph edges from nearest-neighbor distances in the structured
@@ -117,10 +117,6 @@ whole scene based on pointer position, kept independent from the path
 animation so the two motions read as distinct: what you triggered vs. ambient
 depth.
 
-**Timing & easing.** Nearly everything uses `cubic-bezier(0.16, 1, 0.3, 1)`
-("ease-out-expo"-ish) for a confident, decisive settle rather than a bouncy or
-linear finish — chosen to match the "calm but powerful" brief.
-
 **Micro-interactions.** Two places specifically
 needed hover/focus/transition treatment beyond scroll-driven animation:
 
@@ -134,9 +130,3 @@ needed hover/focus/transition treatment beyond scroll-driven animation:
   chart interaction, not just a static image); summary cards lift and gain
   an accent border on hover; sidebar tabs get a hover tint in addition to
   their active state.
-
-## Notes on scope
-
-This repository focuses on engineering execution. The companion Figma file
-and product documentation (see `/docs`) cover the design rationale, page
-structure, and component system in more depth.
