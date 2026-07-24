@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const trendValues = [22, 28, 24, 34, 30, 42, 38, 50, 46, 58, 54, 66];
+const trendValues = [
+  22, 28, 24, 34, 30, 42, 38, 50, 46, 58, 54, 66, 62, 74, 70, 82, 78, 90, 86,
+  98, 94,
+];
 
 const TrendChart = () => {
   const w = 480;

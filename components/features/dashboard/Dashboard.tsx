@@ -70,7 +70,7 @@ const Dashboard = () => {
           <div className="p-6 flex-1">
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeNav}
+                key={`${activeNav}-${activeTab}`}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
